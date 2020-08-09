@@ -1,0 +1,38 @@
+front-end/autocratic-analytics/node_modules
+front-end/autocratic-analytics/dist
+front-end/autocratic-analytics/tmp
+
+back-end/autocratic/target
+back-end/autocratic/.mvn/wrapper/maven-wrapper.jar
+back-end/autocratic/src/main/**/target/
+back-end/autocratic/src/test/**/target/
+back-end/autocratic/HELP.md
+
+
+### NetBeans ###
+back-end/autocratic-analytics/nbproject/private/
+back-end/autocratic-analytics/nbbuild/
+back-end/autocratic-analytics/dist/
+back-end/autocratic-analytics/nbdist/
+back-end/autocratic-analytics/.nb-gradle/
+back-end/autocratic-analytics/build/
+back-end/autocratic/src/main/**/build/
+back-end/autocratic/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+.mvn/wrapper/maven-wrapper.jar
+
