@@ -1,1 +1,40 @@
-<p>nav-bar works!</p>
+<div class="nav-bar-items">
+  <div style="border-right: solid black 1px">
+    <app-logo
+      [width]="'100px'"
+      [height]="'100px'"
+      [borderRadius]="'5px'"
+      [margin]="'0 10px 0 10px'"
+    >
+    </app-logo>
+  </div>
+
+  <div class="links">
+    <a mat-button class="link-button">Page 1</a>
+    <a mat-button class="link-button">Page 2</a>
+    <a mat-button class="link-button">Page 3</a>
+  </div>
+  <div class="search">
+    <button mat-button style="display: flex; flex-direction: row; font-size: 18px">
+      <mat-icon>search</mat-icon>
+      <span>Search</span>
+    </button>
+<!--    <mat-autocomplete #auto="matAutocomplete">-->
+<!--      <mat-option *ngFor="let option of options" [value]="option">-->
+<!--        {{option}}-->
+<!--      </mat-option>-->
+<!--    </mat-autocomplete>-->
+
+  </div>
+  <div class="sign-in">
+    <a mat-button style="font-size: 18px"> Sign In </a>
+    <span style="font-size: 20px">|</span>
+    <a mat-button style="font-size: 18px"> Register </a>
+  </div>
+  <div class="profile-image">
+    <img style="width: 50px; height: 50px; border-radius: 50px" src="assets/question_mark.png"/>
+  </div>
+
+</div>
+
+
