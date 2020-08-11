@@ -9,12 +9,14 @@ import { LogoComponent } from './logo/logo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { NavBarLinksComponent } from './navigation/nav-bar/nav-bar-links/nav-bar-links.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     LogoComponent,
+    NavBarLinksComponent,
   ],
   imports: [
     BrowserModule,

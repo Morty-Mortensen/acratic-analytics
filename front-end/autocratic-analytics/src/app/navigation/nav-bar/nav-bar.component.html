@@ -10,9 +10,12 @@
   </div>
 
   <div class="links">
-    <a mat-button class="link-button">Page 1</a>
-    <a mat-button class="link-button">Page 2</a>
-    <a mat-button class="link-button">Page 3</a>
+    <app-nav-bar-links
+      [links]="['Page 1', 'Page 2', 'Page 3']"
+      [fontSize]="'18px'"
+      [width]="'100px'"
+    >
+    </app-nav-bar-links>
   </div>
   <div class="search">
     <button mat-button style="display: flex; flex-direction: row; font-size: 18px">
