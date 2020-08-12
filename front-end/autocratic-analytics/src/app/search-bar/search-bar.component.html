@@ -1,0 +1,26 @@
+<button style="width: 100%"
+  mat-button
+  class="search-bar-layout"
+  [ngStyle]="{'fontSize': fontSize}"
+  (click)="openSearchBar()"
+
+  *ngIf="!startSearch">
+  <mat-icon>search</mat-icon>
+  <span>Search</span>
+</button>
+
+
+<mat-form-field *ngIf="startSearch" [ngStyle]="{'width': width}">
+  <input
+        type="text"
+         placeholder="Search Here"
+         matInput
+         [formControl]="search"
+         [matAutocomplete]="autoCompleteInput"/>
+  <mat-autocomplete #autoCompleteInput="matAutocomplete">
+    <mat-option *ngFor="let option of filterOptions | async" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+

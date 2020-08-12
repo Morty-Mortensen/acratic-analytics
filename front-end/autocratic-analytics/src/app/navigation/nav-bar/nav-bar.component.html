@@ -1,13 +1,16 @@
 <div class="nav-bar-items">
-  <div style="border-right: solid black 1px">
+
+  <a routerLink="/">
     <app-logo
-      [width]="'100px'"
-      [height]="'100px'"
+      [width]="'65px'"
+      [height]="'65px'"
       [borderRadius]="'5px'"
       [margin]="'0 10px 0 10px'"
     >
     </app-logo>
-  </div>
+  </a>
+
+
 
   <div class="links">
     <app-nav-bar-links
@@ -18,15 +21,14 @@
     </app-nav-bar-links>
   </div>
   <div class="search">
-    <button mat-button style="display: flex; flex-direction: row; font-size: 18px">
-      <mat-icon>search</mat-icon>
-      <span>Search</span>
-    </button>
-<!--    <mat-autocomplete #auto="matAutocomplete">-->
-<!--      <mat-option *ngFor="let option of options" [value]="option">-->
-<!--        {{option}}-->
-<!--      </mat-option>-->
-<!--    </mat-autocomplete>-->
+    <app-search-bar
+    [fontSize]="'18px'"
+    [availableRoutes]="['Cool Page', 'Less Cool Page', 'Least Cool Page']"
+    [width]="'300px'"
+    >
+    </app-search-bar>
+
+
 
   </div>
   <div class="sign-in">
