@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar-links',
@@ -8,12 +9,18 @@ import {Component, Input, OnInit} from '@angular/core';
 export class NavBarLinksComponent implements OnInit {
 
   @Input() links = [];
+  @Input() backLink = null;
   @Input() width = '';
   @Input() fontSize = '';
 
-  constructor() { }
+  routerLinks = [];
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void
+  {
   }
+
+
 
 }

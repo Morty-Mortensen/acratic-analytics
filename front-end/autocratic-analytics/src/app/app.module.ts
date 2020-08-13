@@ -14,6 +14,14 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ProfileImageComponent } from './profile-image/profile-image.component';
+import { LoginNavComponent } from './navigation/login-nav/login-nav.component';
+import { HomeComponent } from './home/home.component';
+import { AccountingHomeComponent } from './accounting-home/accounting-home.component';
+import { FinanceHomeComponent } from './finance-home/finance-home.component';
+import { MarketingHomeComponent } from './marketing-home/marketing-home.component';
+import { AccountingWebToCsvComponent } from './accounting-home/accounting-web-to-csv/accounting-web-to-csv.component';
+import { MarketingCreateLogoComponent } from './marketing-home/marketing-create-logo/marketing-create-logo.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +30,14 @@ import {ReactiveFormsModule} from "@angular/forms";
     LogoComponent,
     NavBarLinksComponent,
     SearchBarComponent,
+    ProfileImageComponent,
+    LoginNavComponent,
+    HomeComponent,
+    AccountingHomeComponent,
+    FinanceHomeComponent,
+    MarketingHomeComponent,
+    AccountingWebToCsvComponent,
+    MarketingCreateLogoComponent,
   ],
   imports: [
     BrowserModule,

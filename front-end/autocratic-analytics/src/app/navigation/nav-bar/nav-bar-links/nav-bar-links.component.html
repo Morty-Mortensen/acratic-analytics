@@ -1,9 +1,22 @@
+<a *ngIf="backLink" mat-button
+   [ngStyle]="
+  {
+    'width': '50px',
+    'color': '#00487C'
+
+  }"
+   routerLink="{{backLink}}">
+  <mat-icon>arrow_back</mat-icon>
+</a>
+
 <a *ngFor='let link of links' mat-button [ngStyle]="
   {
     'width': width,
     'fontSize': fontSize
-  }">
-  {{ link }}
+  }"
+routerLink="{{link.path}}"
+routerLinkActive="active current">
+  {{ link.display }}
 </a>
 
 
