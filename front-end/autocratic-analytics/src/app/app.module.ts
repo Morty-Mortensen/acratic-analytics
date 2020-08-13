@@ -22,6 +22,7 @@ import { FinanceHomeComponent } from './finance-home/finance-home.component';
 import { MarketingHomeComponent } from './marketing-home/marketing-home.component';
 import { AccountingWebToCsvComponent } from './accounting-home/accounting-web-to-csv/accounting-web-to-csv.component';
 import { MarketingCreateLogoComponent } from './marketing-home/marketing-create-logo/marketing-create-logo.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -39,17 +40,18 @@ import { MarketingCreateLogoComponent } from './marketing-home/marketing-create-
     AccountingWebToCsvComponent,
     MarketingCreateLogoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    ReactiveFormsModule
-  ],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		BrowserAnimationsModule,
+		MatButtonModule,
+		MatIconModule,
+		MatAutocompleteModule,
+		MatInputModule,
+		ReactiveFormsModule,
+		MatMenuModule
+	],
   providers: [],
   bootstrap: [AppComponent]
 })

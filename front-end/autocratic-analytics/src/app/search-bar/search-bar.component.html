@@ -18,8 +18,8 @@
          [formControl]="search"
          [matAutocomplete]="autoCompleteInput"/>
   <mat-autocomplete #autoCompleteInput="matAutocomplete">
-    <mat-option *ngFor="let option of filterOptions | async" [value]="option">
-      {{option}}
+    <mat-option *ngFor="let option of filterOptions | async" [value]="option.path">
+      {{option.display}}
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>

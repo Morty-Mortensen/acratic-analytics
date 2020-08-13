@@ -23,8 +23,11 @@ export class SearchBarComponent implements OnInit {
   constructor(private element: ElementRef) { }
 
   ngOnInit(): void {
+
+    console.log('Availalbe search routes: ' + this.availableRoutes);
+
     this.filterOptions = this.search.valueChanges.pipe(
-      map(value => this.availableRoutes.filter(option => option.toLowerCase().includes(value)))
+      map(value => this.availableRoutes.filter(option => option.display.toLowerCase().includes(value)))
     );
   }
 

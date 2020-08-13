@@ -10,7 +10,9 @@ export class NavBarComponent implements OnInit {
 
   navbarLinks = [];
   backLink = '';
+  allRoutes = [];
   currentComponentUrl = '';
+  isMobile = false;
 
   constructor(private route: Router)
   {
@@ -33,23 +35,29 @@ export class NavBarComponent implements OnInit {
         else
         {
           this.navbarLinks = this.findChildren(event.state.root.children[0].routeConfig.children);
-        }}
+        }
+
+        if ( !this.allRoutes.length )
+        {
+          this.allRoutes = this.getAllRoutes(event.state.root.children[0].routeConfig.children);
+        }
+      }
     });
 
 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    window.onresize = () => this.isMobile = window.innerWidth <= 400;
   }
 
   private findChildren(children): any[]
   {
     const links = [];
-    const childrenToAdd = [];
     // Create deep copy so that temporarily added children are not stored.
-    children.forEach( child => {
-      childrenToAdd.push(child);
-    });
+    const childrenToAdd = this.createDeepChildrenCopy(children);
+
     if ( childrenToAdd )
     {
       for ( let i = 0; i < childrenToAdd.length; i++ )
@@ -78,7 +86,6 @@ export class NavBarComponent implements OnInit {
           }
         }
 
-
       }
       const yep = 0;
       return links;
@@ -93,7 +100,7 @@ export class NavBarComponent implements OnInit {
   private getParentLink(event)
   {
 
-    //Check if coming out of tree.
+    // Check if coming out of tree.
     if ( this.isExitingTree(event) )
     {
       // Coming out of the tree.
@@ -114,6 +121,35 @@ export class NavBarComponent implements OnInit {
   {
     // The length === 0 is to account for if the page is refreshed and the this.currentComponentUrl is reset.
     return ( event.url.length < this.currentComponentUrl.length ||  this.currentComponentUrl.length === 0 );
+  }
+
+  private getAllRoutes(children)
+  {
+      const routes = [];
+      const childrenToAdd = this.createDeepChildrenCopy(children);
+
+      for ( let i = 0; i < childrenToAdd.length; i++ )
+      {
+        routes.push(this.addPropertiesToChildLink(childrenToAdd[i]));
+        if ( childrenToAdd[i].children !== undefined )
+        {
+          childrenToAdd[i].children.forEach( child => {
+            childrenToAdd.push(child);
+          });
+        }
+      }
+
+      return routes;
+  }
+
+  private createDeepChildrenCopy(children)
+  {
+    const childrenToAdd = [];
+    children.forEach( child => {
+      childrenToAdd.push(child);
+    });
+
+    return childrenToAdd;
   }
 
 }

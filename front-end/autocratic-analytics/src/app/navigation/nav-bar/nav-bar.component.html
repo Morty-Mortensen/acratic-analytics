@@ -1,4 +1,4 @@
-<div class="nav-bar-items">
+<div class="nav-bar-items" *ngIf='!isMobile'>
   <a routerLink="/">
     <app-logo
       [width]="'65px'"
@@ -15,13 +15,14 @@
       [backLink]="backLink"
       [fontSize]="'16px'"
       [width]="'100px'"
+      [noButton]='true'
     >
     </app-nav-bar-links>
   </div>
   <div class="search">
     <app-search-bar
     [fontSize]="'18px'"
-    [availableRoutes]="['Cool Page', 'Less Cool Page', 'Least Cool Page']"
+    [availableRoutes]="allRoutes"
     [width]="'400px'"
     >
     </app-search-bar>
@@ -40,5 +41,46 @@
     </app-profile-image>
   </div>
 </div>
+
+
+
+<div class="nav-bar-items" *ngIf='isMobile'>
+
+
+  <button mat-button [matMenuTriggerFor]="menu"> <mat-icon style='margin: 0 0 13px 0; width: 50px;font-size: 40px'>menu</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <app-nav-bar-links
+      [links]="navbarLinks"
+      [backLink]="backLink"
+      [fontSize]="'16px'"
+      [matMenuItems]='true'
+    >
+    </app-nav-bar-links>
+  </mat-menu>
+
+  <div class="search">
+    <app-search-bar
+      [fontSize]="'18px'"
+      [availableRoutes]="allRoutes"
+      [width]="'100%'"
+    >
+    </app-search-bar>
+  </div>
+
+
+  <a routerLink="/">
+    <app-logo
+      [width]="'65px'"
+      [height]="'65px'"
+      [borderRadius]="'5px'"
+      [margin]="'0 20px 0 10px'"
+    >
+    </app-logo>
+  </a>
+</div>
+
+
+
+
 
 

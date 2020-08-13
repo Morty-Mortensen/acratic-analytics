@@ -1,22 +1,69 @@
-<a *ngIf="backLink" mat-button
-   [ngStyle]="
+<!--Back arrow for mobile-->
+<div *ngIf='matMenuItems'>
+  <button *ngIf='backLink && matMenuItems' mat-menu-item>
+    <a mat-button
+       [ngStyle]="
   {
-    'width': '50px',
-    'color': '#00487C'
+    'width': '100%',
+    'color': '#00487C',
+    'margin-left': '5px'
 
   }"
-   routerLink="{{backLink}}">
-  <mat-icon>arrow_back</mat-icon>
-</a>
+       routerLink="{{backLink}}">
+      <mat-icon>arrow_upward</mat-icon>
+    </a>
+  </button>
 
-<a *ngFor='let link of links' mat-button [ngStyle]="
-  {
-    'width': width,
-    'fontSize': fontSize
-  }"
-routerLink="{{link.path}}"
-routerLinkActive="active current">
-  {{ link.display }}
-</a>
+  <!--Routes for mobile-->
+  <button *ngFor='let link of links' mat-menu-item>
+    <a  [ngStyle]="
+    {
+      'width': width,
+      'fontSize': fontSize,
+      'color': 'white',
+      'text-decoration': 'none'
+    }"
+       routerLink="{{link.path}}"
+       routerLinkActive="active current">
+      {{ link.display }}
+    </a>
+  </button>
+</div>
+
+
+
+
+
+
+<!--Back arrow for desktop-->
+<div *ngIf="noButton">
+  <a *ngIf="backLink" mat-button
+     [ngStyle]="
+    {
+      'width': '50px',
+      'color': '#00487C'
+
+    }"
+     routerLink="{{backLink}}">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+
+  <!--Routes for desktop-->
+
+    <a *ngFor='let link of links' mat-button [ngStyle]="
+    {
+      'width': width,
+      'fontSize': fontSize
+    }"
+       routerLink="{{link.path}}"
+       routerLinkActive="active current">
+      {{ link.display }}
+    </a>
+</div>
+
+
+
+
+
 
 

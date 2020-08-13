@@ -12,8 +12,9 @@ export class NavBarLinksComponent implements OnInit {
   @Input() backLink = null;
   @Input() width = '';
   @Input() fontSize = '';
+  @Input() matMenuItems = false;
+  @Input() noButton = false;
 
-  routerLinks = [];
 
   constructor(private route: ActivatedRoute) { }
 
