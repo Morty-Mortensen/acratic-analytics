@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router, RoutesRecognized} from "@angular/router";
 
 @Component({
@@ -13,20 +13,22 @@ export class NavBarComponent implements OnInit {
   allRoutes = [];
   currentComponentUrl = '';
   isMobile = false;
+  currWindowWidth = 500;
 
   constructor(private route: Router)
   {
     this.route.events.subscribe(event => {
 
+      // -------------Calculate current page parent/child routes. (1)
       if ( event instanceof RoutesRecognized)
       {
         this.navbarLinks = [];
+
         this.getParentLink(event);
         this.currentComponentUrl = event.url;
-        // If root, push all direct children on. Else, look
+
         if ( event.url === '/' )
         {
-
           event.state.root.children[0].routeConfig.children.forEach( child => {
             this.navbarLinks.push(this.addPropertiesToChildLink(child));
           });
@@ -37,19 +39,62 @@ export class NavBarComponent implements OnInit {
           this.navbarLinks = this.findChildren(event.state.root.children[0].routeConfig.children);
         }
 
+        // -------------Grab all routes (for website-wide search). (2)
         if ( !this.allRoutes.length )
         {
-          this.allRoutes = this.getAllRoutes(event.state.root.children[0].routeConfig.children);
+          this.getAllRoutes('/', event.state.root.children[0].routeConfig.children);
         }
+
+        // -------------Keep it mobil friendly. (3)
+        this.isMobile = this.isMobileWidth(window.innerWidth);
       }
     });
 
+  }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event)
+  {
+    this.isMobile = this.isMobileWidth(event.target.innerWidth);
+  }
+
+  public isMobileWidth(width: number): boolean
+  {
+    this.currWindowWidth = width;
+
+    if ( width <= 500 )
+    {
+      return true;
+    }
+    else if ( width <= 560 && this.navbarLinks.length === 1 )
+    {
+      return true;
+    }
+    else if ( width <= 660 && this.navbarLinks.length === 2 )
+    {
+      return true;
+    }
+    else if ( width <= 760 && this.navbarLinks.length === 3 )
+    {
+      return true;
+    }
+    else if ( width <= 860 && this.navbarLinks.length === 4 )
+    {
+      return true;
+    }
+    else if ( width <= 960 && this.navbarLinks.length === 5 )
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   ngOnInit(): void
   {
-    window.onresize = () => this.isMobile = window.innerWidth <= 400;
+    window.onresize = () => this.isMobile = window.innerWidth <= 699;
   }
 
   private findChildren(children): any[]
@@ -87,7 +132,6 @@ export class NavBarComponent implements OnInit {
         }
 
       }
-      const yep = 0;
       return links;
     }
   }
@@ -123,23 +167,18 @@ export class NavBarComponent implements OnInit {
     return ( event.url.length < this.currentComponentUrl.length ||  this.currentComponentUrl.length === 0 );
   }
 
-  private getAllRoutes(children)
+  private getAllRoutes(currUrl: string, children)
   {
-      const routes = [];
-      const childrenToAdd = this.createDeepChildrenCopy(children);
-
-      for ( let i = 0; i < childrenToAdd.length; i++ )
+      for ( let i = 0; i < children.length; i++ )
       {
-        routes.push(this.addPropertiesToChildLink(childrenToAdd[i]));
-        if ( childrenToAdd[i].children !== undefined )
+        if ( children[i].children !== undefined )
         {
-          childrenToAdd[i].children.forEach( child => {
-            childrenToAdd.push(child);
-          });
+          this.getAllRoutes(currUrl + children[i].path + '/', children[i].children);
         }
+        this.allRoutes.push({display: children[i].path, path: currUrl + children[i].path});
       }
 
-      return routes;
+      return;
   }
 
   private createDeepChildrenCopy(children)
@@ -151,5 +190,4 @@ export class NavBarComponent implements OnInit {
 
     return childrenToAdd;
   }
-
 }

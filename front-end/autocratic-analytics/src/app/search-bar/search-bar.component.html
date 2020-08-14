@@ -1,4 +1,4 @@
-<button style="width: 100%"
+<button style="width: 100%; font-family: roboto-fontface, sans-serif"
   mat-button
   class="search-bar-layout"
   [ngStyle]="{'fontSize': fontSize}"
@@ -18,9 +18,11 @@
          [formControl]="search"
          [matAutocomplete]="autoCompleteInput"/>
   <mat-autocomplete #autoCompleteInput="matAutocomplete">
-    <mat-option *ngFor="let option of filterOptions | async" [value]="option.path">
-      {{option.display}}
-    </mat-option>
+    <a class="route-links" routerLink="{{route.path}}"  *ngFor="let route of filterOptions | async">
+      <mat-option [value]="route.display" (click)="clearInput()">
+        {{route.display}}
+      </mat-option>
+    </a>
   </mat-autocomplete>
 </mat-form-field>
 

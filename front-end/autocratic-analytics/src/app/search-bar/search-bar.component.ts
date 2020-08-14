@@ -59,6 +59,11 @@ export class SearchBarComponent implements OnInit {
     }
   }
 
+  public clearInput()
+  {
+    this.search.reset();
+  }
+
 
 
 

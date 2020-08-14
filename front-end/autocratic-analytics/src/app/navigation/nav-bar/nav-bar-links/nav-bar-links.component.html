@@ -21,11 +21,11 @@
       'width': width,
       'fontSize': fontSize,
       'color': 'white',
-      'text-decoration': 'none'
+      'text-decoration': 'none',
+      'fontFamily': 'roboto-fontface, sans-serif'
     }"
-       routerLink="{{link.path}}"
-       routerLinkActive="active current">
-      {{ link.display }}
+       routerLink="{{link.path}}">
+      {{ link.display | titlecase }}
     </a>
   </button>
 </div>
@@ -53,11 +53,13 @@
     <a *ngFor='let link of links' mat-button [ngStyle]="
     {
       'width': width,
-      'fontSize': fontSize
+      'fontSize': fontSize,
+      'padding': '0px',
+      'fontFamily': 'roboto-fontface, sans-serif'
     }"
        routerLink="{{link.path}}"
-       routerLinkActive="active current">
-      {{ link.display }}
+    >
+      {{ link.display | titlecase }}
     </a>
 </div>
 

@@ -4,3 +4,9 @@
   flex-direction: row;
   width: 100%;
 }
+
+.route-links
+{
+  color: white;
+  text-decoration: none;
+}
