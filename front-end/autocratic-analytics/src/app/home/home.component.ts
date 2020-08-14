@@ -1,36 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationStart, Router, RouterEvent} from "@angular/router";
+import {NavigationStart, Router, RouterEvent, RoutesRecognized} from "@angular/router";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit
+{
 
-  constructor()
+  displayComponent = true;
+
+  constructor(private route: Router)
   {
-    // private route: Router
-    // this.route.events.subscribe(event => {
-    //
-    //   // console.log(this.route.config);
-    //   console.log('CONFIG: ' + this.route.routerState.root.firstChild);
-    //   console.log('THE CHILDREN: ' + this.route);
-    //   // console.log('CONFIG: ' + this.route.routerState.root.routeConfig);
-    //   // console.log('THE CHILDREN: ' + this.route.routerState.root.routeConfig.children);
-    //   let test = event;
-    //   // console.log(event);
-    //   // NavigationEnd
-    //   // NavigationCancel
-    //   // NavigationError
-    //   // RoutesRecognized
-    // });
+    this.route.events.subscribe(event =>
+    {
+      if ( event instanceof RoutesRecognized)
+      {
+        if ( event.url === '/' )
+        {
+          this.displayComponent = true;
+        }
+        else
+        {
+          this.displayComponent = false;
+        }
+      }
+    });
+
+
   }
 
   ngOnInit(): void {
 
   }
 
-
-
 }
+
+

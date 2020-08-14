@@ -1,1 +1,23 @@
+<div *ngIf="displayComponent">
+  <div class="white-space"></div>
+
+  <div class="welcome-container">
+    <div class="top-3">
+      <app-small-card
+      [cards]="[{path: '/accounting/web-to-csv', display: 'convert your stuff to csv!'}, {path: '/finance', display: 'check out your finances.'}, {path: '/marketing', display: 'create your own marketing logo.'}]"
+      ></app-small-card>
+    </div>
+    <div class="welcome-image">
+  </div>
+
+
+
+
+
+
+
+
+</div>
+
+
 <router-outlet></router-outlet>

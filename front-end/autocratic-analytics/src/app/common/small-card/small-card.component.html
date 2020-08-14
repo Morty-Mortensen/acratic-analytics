@@ -1,0 +1,5 @@
+<mat-card class="small-card" *ngFor="let card of cards">
+  <a class="anchor" mat-stroked-button routerLink="{{card.path}}">
+    {{card.display | titlecase}}
+  </a>
+</mat-card>

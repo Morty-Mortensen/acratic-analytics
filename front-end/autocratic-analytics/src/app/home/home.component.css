@@ -1,0 +1,43 @@
+.white-space
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25px;
+  background-color: aqua;
+}
+
+
+.welcome-container
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 50px 0 50px 0;
+  background-color: #7C98B3;
+}
+
+.top-3
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.welcome-image
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 500px;
+  height: 20px;
+  background-color: blue;
+}
+

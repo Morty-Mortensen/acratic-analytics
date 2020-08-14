@@ -1,0 +1,21 @@
+.small-card
+{
+  width: 350px; padding: 0;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 2px 3px 2px gray;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+}
+
+.anchor
+{
+  text-decoration: none;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+}

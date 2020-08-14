@@ -5,16 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './navigation/nav-bar/nav-bar.component';
-import { LogoComponent } from './logo/logo.component';
+import { LogoComponent } from './navigation/logo/logo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { NavBarLinksComponent } from './navigation/nav-bar/nav-bar-links/nav-bar-links.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchBarComponent } from './navigation/search-bar/search-bar.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
-import { ProfileImageComponent } from './profile-image/profile-image.component';
+import { ProfileImageComponent } from './navigation/profile-image/profile-image.component';
 import { LoginNavComponent } from './navigation/login-nav/login-nav.component';
 import { HomeComponent } from './home/home.component';
 import { AccountingHomeComponent } from './accounting-home/accounting-home.component';
@@ -23,6 +23,8 @@ import { MarketingHomeComponent } from './marketing-home/marketing-home.componen
 import { AccountingWebToCsvComponent } from './accounting-home/accounting-web-to-csv/accounting-web-to-csv.component';
 import { MarketingCreateLogoComponent } from './marketing-home/marketing-create-logo/marketing-create-logo.component';
 import {MatMenuModule} from "@angular/material/menu";
+import {MatCardModule} from "@angular/material/card";
+import { SmallCardComponent } from './common/small-card/small-card.component';
 
 @NgModule({
   declarations: [
@@ -39,19 +41,21 @@ import {MatMenuModule} from "@angular/material/menu";
     MarketingHomeComponent,
     AccountingWebToCsvComponent,
     MarketingCreateLogoComponent,
+    SmallCardComponent,
   ],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		HttpClientModule,
-		BrowserAnimationsModule,
-		MatButtonModule,
-		MatIconModule,
-		MatAutocompleteModule,
-		MatInputModule,
-		ReactiveFormsModule,
-		MatMenuModule
-	],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatCardModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
