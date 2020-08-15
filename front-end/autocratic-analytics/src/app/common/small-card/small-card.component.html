@@ -1,5 +1,10 @@
-<mat-card class="small-card" *ngFor="let card of cards">
+<mat-card id="small-card-id" class="small-card" *ngFor="let card of cards">
   <a class="anchor" mat-stroked-button routerLink="{{card.path}}">
-    {{card.display | titlecase}}
+    <div style="display: flex; justify-content: flex-start; width: 100%; align-items: center">
+      {{card.display | titlecase}}
+    </div>
+    <div style="display: flex; justify-content: flex-end; width: 100%; align-items: center" >
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </div>
   </a>
 </mat-card>

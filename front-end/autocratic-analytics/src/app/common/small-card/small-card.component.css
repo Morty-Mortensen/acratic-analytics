@@ -9,6 +9,7 @@
   background-color: white;
   color: black;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .anchor
@@ -17,5 +18,28 @@
   width: 100%;
   border-radius: 10px;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  border-style: none;
+}
+
+.anchor-arrow
+{
+  display: flex;
+  justify-content: flex-end;
+}
+
+::ng-deep #small-card-id > a > span.mat-button-wrapper
+{
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100% !important;
+}
+
+#small-card-id:hover
+{
+  background-color: lightgray;
+}
+#small-card-id > a:hover
+{
+  background-color: lightgray;
 }
