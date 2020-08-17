@@ -18,7 +18,6 @@
   align-items: center;
   width: 100%;
   padding: 50px 0 50px 0;
-  /*background-color: #7C98B3;*/
   background: linear-gradient(360deg, #7C98B3, lightcyan)
 }
 
@@ -27,7 +26,6 @@
   position: absolute;
   top: 200px;
   left: 170px;
-  word-break: break-word;
   width: 500px
 }
 
@@ -70,5 +68,39 @@
   position: relative;
   top: 65px;
   right: 50px;
+}
+
+
+.article-section-container
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 50px 0 50px 0;
+  background: linear-gradient(360deg, #7C98B3, lightcyan)
+}
+
+.article-title-container
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+
+.article-container
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  background-color: white;
 }
 

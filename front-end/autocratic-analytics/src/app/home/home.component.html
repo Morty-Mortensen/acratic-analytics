@@ -1,9 +1,15 @@
 <div *ngIf="displayComponent">
+
   <div class="white-space"></div>
 
   <div class="welcome-container">
     <div class="welcome-title-container">
-      <p class="welcome-title">Welcome to your business helper</p>
+      <app-title
+      [title]="'Welcome to your business helper'"
+      [lineHeight]="'1'"
+      [wordSpacing]="'5px'"
+      [wordBreak]="'break-word'"
+      ></app-title>
     </div>
     <div class="top-3">
       <app-small-card
@@ -12,7 +18,32 @@
     </div>
     <div class="welcome-image">
       <img class="welcome-image-properties" src="assets/home_important_links.jpg"/>
+    </div>
   </div>
+
+  <div class="white-space"></div>
+
+  <div class="article-section-container">
+
+    <div class="article-title-container">
+      <app-title
+        [title]="'Recent Articles'"
+        [wordSpacing]="'5px'"
+        [fontSize]="'45px'"
+        [margin]="'0 0 0 20px'"
+      ></app-title>
+    </div>
+
+    <div class="article-container">
+      <app-medium-card
+      [mediumCards]="[]">
+
+      </app-medium-card>
+    </div>
+  </div>
+
+
+
 
 
 

@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit
 {
 
   displayComponent = true;
+  mainTitle = 'Welcome to your business helper';
 
   constructor(private route: Router)
   {

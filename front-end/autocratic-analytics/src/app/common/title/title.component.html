@@ -1,0 +1,11 @@
+<p [ngStyle]="{
+  'fontFamily': fontFamily,
+  'fontSize': fontSize,
+  'lineHeight': (lineHeight !== '') ? lineHeight : null,
+  'color': fontColor,
+  'fontWeight': fontWeight,
+  'wordSpacing': (wordSpacing !== '') ? wordSpacing : null,
+  'wordBreak': (wordBreak !== '') ? wordBreak : null,
+  'margin': (margin !== '') ? margin : null
+}"
+>{{title | titlecase}}</p>

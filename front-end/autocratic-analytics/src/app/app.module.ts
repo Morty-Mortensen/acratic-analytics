@@ -25,6 +25,8 @@ import { MarketingCreateLogoComponent } from './marketing-home/marketing-create-
 import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from "@angular/material/card";
 import { SmallCardComponent } from './common/small-card/small-card.component';
+import { TitleComponent } from './common/title/title.component';
+import { MediumCardComponent } from './common/medium-card/medium-card.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { SmallCardComponent } from './common/small-card/small-card.component';
     AccountingWebToCsvComponent,
     MarketingCreateLogoComponent,
     SmallCardComponent,
+    TitleComponent,
+    MediumCardComponent,
   ],
   imports: [
     BrowserModule,
