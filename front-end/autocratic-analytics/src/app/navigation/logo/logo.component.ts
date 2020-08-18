@@ -11,6 +11,12 @@ export class LogoComponent implements OnInit {
   @Input() height = '';
   @Input() borderRadius = '';
   @Input() margin = '';
+  @Input() position = '';
+  @Input() left = '';
+  @Input() right = '';
+  @Input() top = '';
+  @Input() bottom = '';
+
 
 
 
