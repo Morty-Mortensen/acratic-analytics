@@ -24,7 +24,6 @@
   <div class="white-space"></div>
 
   <div class="article-section-container">
-
     <div class="article-title-container">
       <app-title
         [title]="'Recent Articles'"
@@ -36,11 +35,48 @@
 
     <div class="article-container">
       <app-medium-card
-      [mediumCards]="[]">
-
+      [mediumCards]="mockData"
+      [margin]="'0 100px 0 0'">
       </app-medium-card>
     </div>
   </div>
+
+  <div class="white-space"></div>
+
+  <div class="main-video">
+    <app-title
+      [title]="'Our Story'"
+      [wordSpacing]="'5px'"
+      [fontSize]="'45px'"
+      [margin]="'0 0 0 20px'"
+    ></app-title>
+  </div>
+
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 20px 0 20px 0;   background: linear-gradient(360deg, #7C98B3, lightcyan);">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 20px;">
+      <app-title
+        [title]="'View how our story came to be'"
+        [fontSize]="'40px'"
+        [fontColor]="'black'"
+        [fontWeight]="'400'"
+        [margin]="'0 0 20px 0'"
+      ></app-title>
+      <app-title
+        [title]="'Let our story become your\'s'"
+        [fontSize]="'25px'"
+        [fontColor]="'gray'"
+        [margin]="'0 0 0 0'"
+      ></app-title>
+    </div>
+
+<!--    <h1 style="margin-right: 20px"></h1>-->
+    <app-video
+      [source]="'MMybT3dKe_8'"
+      [location]="'Youtube'">
+    </app-video>
+  </div>
+
+
 
 
 

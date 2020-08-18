@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MediumCardComponent implements OnInit {
 
   @Input() mediumCards = [];
+  @Input() margin = '';
 
   constructor() { }
 

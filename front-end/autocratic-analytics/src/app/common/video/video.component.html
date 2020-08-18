@@ -1,0 +1,15 @@
+<iframe style="width: 400px; height: 300px; border-style: none;"
+  *ngIf="location == ''"
+  class="embed-responsive-item"
+  [src]="sanitizeYoutubeUrl()"
+  allowfullscreen>
+</iframe>
+
+
+<iframe style="width: 400px; height: 300px; border-style: none; border-radius: 20px; box-shadow: 0 2px 3px 2px gray;"
+  *ngIf="location == 'Youtube'"
+  class="embed-responsive-item"
+  [src]="sanitizeYoutubeUrl()"
+  allowfullscreen>
+</iframe>
+

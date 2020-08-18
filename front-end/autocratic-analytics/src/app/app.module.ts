@@ -27,6 +27,8 @@ import {MatCardModule} from "@angular/material/card";
 import { SmallCardComponent } from './common/small-card/small-card.component';
 import { TitleComponent } from './common/title/title.component';
 import { MediumCardComponent } from './common/medium-card/medium-card.component';
+import { VideoComponent } from './common/video/video.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { MediumCardComponent } from './common/medium-card/medium-card.component'
     SmallCardComponent,
     TitleComponent,
     MediumCardComponent,
+    VideoComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

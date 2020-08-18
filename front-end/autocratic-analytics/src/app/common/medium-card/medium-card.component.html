@@ -1,8 +1,8 @@
-<a routerLink="{{card.path}}" *ngFor="let card of mediumCards">
-  <mat-card>
-    <mat-card-title>{{card.title}}</mat-card-title>
-    <mat-card-subtitle>{{card.subtitle}}</mat-card-subtitle>
-    <img style="width: 100px;" src="assets/{{card.image}}" mat-card-image/>
+<a routerLink="{{card.path}}" *ngFor="let card of mediumCards" [ngStyle]="{'margin': margin, 'width': '100%'}" style="text-decoration: none; background-color: ghostwhite; color: black; border-radius: 50px; padding: 16px; box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);">
+  <mat-card style="background-color: ghostwhite; color: black; box-shadow: none">
+    <mat-card-title style="display: flex; justify-content: center; align-items: center; width: 100%">{{card.title}}</mat-card-title>
+    <mat-card-subtitle style="display: flex; justify-content: center; align-items: center; width: 100%; color: black">{{card.subtitle}}</mat-card-subtitle>
+    <img style="width: 100%; object-fit: contain; border-radius: 200px; margin: 0" src="assets/{{card.image}}" mat-card-image/>
     <mat-card-content>{{card.description}}</mat-card-content>
   </mat-card>
 </a>

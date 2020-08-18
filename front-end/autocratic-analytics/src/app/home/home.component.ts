@@ -10,9 +10,33 @@ export class HomeComponent implements OnInit
 {
 
   displayComponent = true;
-  mainTitle = 'Welcome to your business helper';
 
-  constructor(private route: Router)
+  mockData = [
+    {
+      path: '/',
+      title: 'My Title',
+      subtitle: 'My Sub Title',
+      image: 'question_mark.png',
+      description: 'Here is a little description about the article.'
+    },
+    {
+      path: '/',
+      title: 'My Title 2',
+      subtitle: 'My Sub Title 2',
+      image: 'question_mark.png',
+      description: 'Here is a little description about the article 2.'
+    },
+    {
+      path: '/',
+      title: 'My Title 3',
+      subtitle: 'My Sub Title 3',
+      image: 'question_mark.png',
+      description: 'Here is a little description about the article 3.'
+    },
+  ];
+
+
+constructor(private route: Router)
   {
     this.route.events.subscribe(event =>
     {
