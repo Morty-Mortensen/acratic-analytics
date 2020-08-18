@@ -1,21 +1,19 @@
-<!--<div style="display: flex; width: 100%; height: 500px; background-color: lightgray">-->
-
-<!--</div>-->
-
 <div style="display: flex; width: 100%; background-color: lightgray">
-  <div style='display: flex; width: 100%; justify-content: center; align-items: center'>
+  <div style='display: flex; width: 100%; justify-content: flex-start; align-items: center'>
     <a routerLink="/">
       <app-logo
         [width]="'65px'"
         [height]="'65px'"
         [borderRadius]="'5px'"
-        [margin]="'0 0 0 10px'"
+        [margin]="'0 200px 0 10px'"
       >
       </app-logo>
     </a>
-    <div [routerLink]='' *ngFor='let test of testMap | keyvalue'>
-      <h2>{{test.value}}</h2>
-      <a *ngFor='let smallTest of test.value'>{{smallTest.path}}</a>
+
+    <div [routerLink]='' *ngFor='let routes of routerParentChildren | keyvalue'>
+      <h2><a [routerLink]="'/' + routes.key" >{{routes.key}}</a></h2>
+      <a [routerLink]='childRoute.path' *ngFor='let childRoute of routes.value'>{{childRoute.display}}</a>
     </div>
+
   </div>
 </div>

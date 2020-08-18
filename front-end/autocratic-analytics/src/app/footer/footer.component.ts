@@ -9,7 +9,8 @@ import {Router, RoutesRecognized} from "@angular/router";
 export class FooterComponent implements OnInit {
 
   testLinks = [];
-  testMap = new Map();
+  routerParentChildren = new Map();
+  footerRoutes
 
   constructor(private route: Router)
   {
@@ -19,8 +20,12 @@ export class FooterComponent implements OnInit {
       if ( event instanceof RoutesRecognized)
       {
         this.testLinks = [];
-        this.setAllChildrenOfMainRoutes('/', event.state.root.children[0].routeConfig.children);
-        console.log(this.testMap);
+        if ( this.routerParentChildren.size === 0 )
+        {
+          this.setAllChildrenOfMainRoutes('/', event.state.root.children[0].routeConfig.children);
+          this.setFooterRoutes();
+        }
+        console.log(this.routerParentChildren);
       }
     });
   }
@@ -36,7 +41,7 @@ export class FooterComponent implements OnInit {
 
       if ( currUrl === '/' )
       {
-        this.testMap.set(child.path, [child.path]);
+        this.routerParentChildren.set(child.path, []);
       }
 
       if ( child.children !== undefined )
@@ -49,16 +54,21 @@ export class FooterComponent implements OnInit {
 
       if ( index != -1 )
       {
-        const childArray = this.testMap.get(currUrl.substr(1, currUrl.indexOf('/', 1) - 1));
-        child.path = currUrl + child.path;
-        childArray.push(child.path);
-        this.testMap.set(currUrl.substr(1, currUrl.indexOf('/', 1) - 1), childArray);
+        const childArray = this.routerParentChildren.get(currUrl.substr(1, currUrl.indexOf('/', 1) - 1));
+        const childPath = currUrl + child.path;
+        childArray.push({display: childPath.substr(childPath.lastIndexOf('/') + 1, childPath.length), path: childPath});
+        this.routerParentChildren.set(currUrl.substr(1, currUrl.indexOf('/', 1) - 1), childArray);
       }
       // console.log('my index: ' + index);
       // console.log('Index of: ' + currUrl.substr(1, currUrl.indexOf('/', 1) - 1));
 
       this.testLinks.push(child);
     });
+  }
+
+  private setFooterRoutes()
+  {
+
   }
 
 }
