@@ -56,7 +56,8 @@ export class FooterComponent implements OnInit {
       {
         const childArray = this.routerParentChildren.get(currUrl.substr(1, currUrl.indexOf('/', 1) - 1));
         const childPath = currUrl + child.path;
-        childArray.push({display: childPath.substr(childPath.lastIndexOf('/') + 1, childPath.length), path: childPath});
+        const displayLabel = childPath.substr(childPath.lastIndexOf('/') + 1, childPath.length).replace(/-/g, ' ');
+        childArray.push({display: displayLabel, path: childPath});
         this.routerParentChildren.set(currUrl.substr(1, currUrl.indexOf('/', 1) - 1), childArray);
       }
       // console.log('my index: ' + index);

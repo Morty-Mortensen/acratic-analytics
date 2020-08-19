@@ -138,7 +138,8 @@ export class NavBarComponent implements OnInit {
 
   private addPropertiesToChildLink(child)
   {
-    return {display: child.path, path: this.currentComponentUrl + '/' + child.path};
+    const displayLabel = child.path.substr(child.path.lastIndexOf('/') + 1, child.path.length).replace(/-/g, ' ');
+    return {display: displayLabel, path: this.currentComponentUrl + '/' + child.path};
   }
 
   private getParentLink(event)
@@ -175,7 +176,8 @@ export class NavBarComponent implements OnInit {
         {
           this.getAllRoutes(currUrl + children[i].path + '/', children[i].children);
         }
-        this.allRoutes.push({display: children[i].path, path: currUrl + children[i].path});
+        const displayLabel = children[i].path.substr(children[i].path.lastIndexOf('/') + 1, children[i].path.length).replace(/-/g, ' ');
+        this.allRoutes.push({display: displayLabel, path: currUrl + children[i].path});
       }
 
       return;

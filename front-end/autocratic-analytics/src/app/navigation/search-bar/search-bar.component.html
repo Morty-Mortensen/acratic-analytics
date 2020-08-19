@@ -20,7 +20,7 @@
   <mat-autocomplete #autoCompleteInput="matAutocomplete">
     <a class="route-links" routerLink="{{route.path}}"  *ngFor="let route of filterOptions | async">
       <mat-option [value]="route.display" (click)="clearInput()">
-        {{route.display}}
+        {{route.display | titlecase}}
       </mat-option>
     </a>
   </mat-autocomplete>

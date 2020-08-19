@@ -16,6 +16,8 @@ export class TitleComponent implements OnInit {
   @Input() wordSpacing = '';
   @Input() wordBreak = '';
   @Input() margin = '';
+  @Input() borderBottom = '';
+  @Input() paddingBottom = '';
 
 
   constructor() { }

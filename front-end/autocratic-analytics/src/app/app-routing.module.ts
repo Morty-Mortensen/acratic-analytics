@@ -16,10 +16,14 @@ const routes: Routes = [
         path: 'accounting', component: AccountingHomeComponent,
         children: [
           { path: 'web-to-csv', component: AccountingWebToCsvComponent },
+          { path: 'something else', component: AccountingWebToCsvComponent },
         ]
       },
       {
-        path: 'finance', component: FinanceHomeComponent
+        path: 'finance', component: FinanceHomeComponent,
+        children: [
+          { path: 'personal finance', component: AccountingWebToCsvComponent },
+        ]
       },
       {
         path: 'marketing', component: MarketingHomeComponent,

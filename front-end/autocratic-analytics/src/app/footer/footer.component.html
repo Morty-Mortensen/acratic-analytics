@@ -1,19 +1,36 @@
-<div style="display: flex; width: 100%; background-color: lightgray">
-  <div style='display: flex; width: 100%; justify-content: flex-start; align-items: center'>
+<div class="footer-container">
+  <div class="footer-sub-container">
     <a routerLink="/">
       <app-logo
-        [width]="'65px'"
-        [height]="'65px'"
+        [width]="'115px'"
+        [height]="'115px'"
         [borderRadius]="'5px'"
-        [margin]="'0 200px 0 10px'"
+        [margin]="'0 0 0 10px'"
+        [position]="'relative'"
+        [left]="'125px'"
+        [bottom]="'25px'"
       >
       </app-logo>
     </a>
 
-    <div [routerLink]='' *ngFor='let routes of routerParentChildren | keyvalue'>
-      <h2><a [routerLink]="'/' + routes.key" >{{routes.key}}</a></h2>
-      <a [routerLink]='childRoute.path' *ngFor='let childRoute of routes.value'>{{childRoute.display}}</a>
+    <div class="footer-navigation-container">
+      <div class="footer-sub-navigation-container" *ngFor='let routes of routerParentChildren | keyvalue'>
+        <a class="footer-title-routes" [routerLink]="'/' + routes.key">
+          <app-title
+            [title]="routes.key"
+            [fontSize]="'20px'"
+            [fontColor]="'black'"
+            [fontWeight]="'500'"
+            [margin]="'0 0 10px 0'"
+            [borderBottom]="'1px solid #000'"
+            [paddingBottom]="'3px'"
+          ></app-title>
+        </a>
+
+        <a class="footer-sub-title-routes" [routerLink]='childRoute.path' *ngFor='let childRoute of routes.value'>{{childRoute.display | titlecase}}</a>
+      </div>
     </div>
+
 
   </div>
 </div>

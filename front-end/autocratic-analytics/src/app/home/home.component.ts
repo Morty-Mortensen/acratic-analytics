@@ -14,24 +14,24 @@ export class HomeComponent implements OnInit
   mockData = [
     {
       path: '/',
-      title: 'My Title',
-      subtitle: 'My Sub Title',
-      image: 'question_mark.png',
-      description: 'Here is a little description about the article.'
+      title: 'Accounting and Software',
+      subtitle: 'Accounting in the modern world',
+      image: 'accounting-general.jpg',
+      description: 'There is a lot that could be said about accounting in the modern world.'
     },
     {
       path: '/',
-      title: 'My Title 2',
-      subtitle: 'My Sub Title 2',
-      image: 'question_mark.png',
-      description: 'Here is a little description about the article 2.'
+      title: 'Real Personal Finance',
+      subtitle: 'Starting at home or at work?',
+      image: 'finance-general.jpg',
+      description: 'Here are a few tips and what could works for you when personal finance is concerned.'
     },
     {
       path: '/',
-      title: 'My Title 3',
-      subtitle: 'My Sub Title 3',
-      image: 'question_mark.png',
-      description: 'Here is a little description about the article 3.'
+      title: 'Marketing to Millennials',
+      subtitle: 'Is it possible?',
+      image: 'marketing-general.jpg',
+      description: 'This might be uncharted territory, but what if I said that Millennials could be marketed too?'
     },
   ];
 
