@@ -18,6 +18,11 @@ export class TitleComponent implements OnInit {
   @Input() margin = '';
   @Input() borderBottom = '';
   @Input() paddingBottom = '';
+  @Input() position = '';
+  @Input() left = '';
+  @Input() right = '';
+  @Input() top = '';
+  @Input() bottom = '';
 
 
   constructor() { }
