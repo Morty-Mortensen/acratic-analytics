@@ -1,0 +1,16 @@
+.general-title-container
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: black
+}
+
+.general-title-img
+{
+  width: 75px;
+  height: 75px;
+  margin: 5px 0 5px 20px;
+  border-radius: 50px
+}

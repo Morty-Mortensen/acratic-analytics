@@ -1,5 +1,15 @@
-<p>accounting-web-to-csv works!</p>
+<ng-container *ngIf="displayComponent">
+  <app-page-header
+    [source]="'excel.jpg'"
+    [title]="'Web To CSV converter'">
+  </app-page-header>
 
-<h1>Click the accounting child</h1>
+  <div class="converters-container">
+    <app-medium-card
+      [mediumCards]="mockData"
+      [margin]="'0 100px 0 0'">
+    </app-medium-card>
+  </div>
+</ng-container>
 
-<router-outlet></router-outlet>
+

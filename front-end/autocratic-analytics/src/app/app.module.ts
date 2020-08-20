@@ -31,6 +31,8 @@ import { VideoComponent } from './common/video/video.component';
 import { FooterComponent } from './footer/footer.component';
 import { DatepickerYearComponent } from './common/datepicker-year/datepicker-year.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { PageHeaderComponent } from './common/page-header/page-header.component';
+import { FortuneFivehundredComponent } from './accounting-home/accounting-web-to-csv/fortune-fivehundred/fortune-fivehundred.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     VideoComponent,
     FooterComponent,
     DatepickerYearComponent,
+    PageHeaderComponent,
+    FortuneFivehundredComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,11 @@
   display: flex;
 }
 
+:host > a:hover
+{
+  background-color: lightgray;
+  box-shadow: 0 2px 3px 2px gray;
+}
 
 .medium-card-container
 {
@@ -12,9 +17,7 @@
   border-radius: 50px;
   padding: 16px;
   width: 100%;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-  0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border: none;
 }
 
 .medium-card-container:last-child
@@ -29,7 +32,7 @@
 
 .medium-card-sub-container
 {
-  background-color: ghostwhite;
+  background-color: unset;
   color: black;
   box-shadow: none;
   display: flex;

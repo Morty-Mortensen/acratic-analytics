@@ -6,6 +6,7 @@ import {FinanceHomeComponent} from "./finance-home/finance-home.component";
 import {MarketingHomeComponent} from "./marketing-home/marketing-home.component";
 import {AccountingWebToCsvComponent} from "./accounting-home/accounting-web-to-csv/accounting-web-to-csv.component";
 import {MarketingCreateLogoComponent} from "./marketing-home/marketing-create-logo/marketing-create-logo.component";
+import {FortuneFivehundredComponent} from "./accounting-home/accounting-web-to-csv/fortune-fivehundred/fortune-fivehundred.component";
 
 
 const routes: Routes = [
@@ -15,7 +16,11 @@ const routes: Routes = [
       {
         path: 'accounting', component: AccountingHomeComponent,
         children: [
-          { path: 'web-to-csv', component: AccountingWebToCsvComponent },
+          { path: 'web-to-csv', component: AccountingWebToCsvComponent,
+            children: [
+              { path: 'fortune-500', component: FortuneFivehundredComponent }
+            ]
+          },
           { path: 'something else', component: AccountingWebToCsvComponent },
         ]
       },
