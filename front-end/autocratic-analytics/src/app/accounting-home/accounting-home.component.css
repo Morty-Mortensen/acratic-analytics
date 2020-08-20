@@ -1,0 +1,11 @@
+.accounting-big-four
+{
+  margin-bottom: 25px;
+  background-color: aliceblue;
+  border-radius: 20px
+}
+
+.accounting-big-four:last-child
+{
+  margin-bottom: 0;
+}

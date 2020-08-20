@@ -29,6 +29,8 @@ import { TitleComponent } from './common/title/title.component';
 import { MediumCardComponent } from './common/medium-card/medium-card.component';
 import { VideoComponent } from './common/video/video.component';
 import { FooterComponent } from './footer/footer.component';
+import { DatepickerYearComponent } from './common/datepicker-year/datepicker-year.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { FooterComponent } from './footer/footer.component';
     MediumCardComponent,
     VideoComponent,
     FooterComponent,
+    DatepickerYearComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { FooterComponent } from './footer/footer.component';
     MatInputModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

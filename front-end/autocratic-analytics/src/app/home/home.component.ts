@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationStart, Router, RouterEvent, RoutesRecognized} from "@angular/router";
+import {ActivationEnd, NavigationEnd, NavigationStart, Router, RouterEvent, RoutesRecognized} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -40,7 +40,7 @@ constructor(private route: Router)
   {
     this.route.events.subscribe(event =>
     {
-      if ( event instanceof RoutesRecognized)
+      if ( event instanceof NavigationEnd)
       {
         if ( event.url === '/' )
         {
@@ -52,8 +52,6 @@ constructor(private route: Router)
         }
       }
     });
-
-
   }
 
   ngOnInit(): void {
