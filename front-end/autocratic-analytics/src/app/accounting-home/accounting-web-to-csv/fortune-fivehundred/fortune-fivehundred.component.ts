@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-fortune-fivehundred',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FortuneFivehundredComponent implements OnInit {
 
+  selectedYear = '';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setSelectedDate($event)
+  {
+    this.selectedYear = $event.target.value;
+    alert('You selected ' + this.selectedYear);
   }
 
 }

@@ -1,1 +1,11 @@
-<p>fortune-fivehundred works!</p>
+<app-page-header
+  [source]="'fortune-500.jpg'"
+  [title]="'Fortune 500'">
+</app-page-header>
+
+<div style='display: flex; justify-content: center; align-items: center; width: 100%; height: 500px'>
+  <div style='background-color: gray'>
+    <app-datepicker-year (change)='setSelectedDate($event)'></app-datepicker-year>
+  </div>
+</div>
+
