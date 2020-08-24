@@ -3,9 +3,22 @@
   [title]="'Fortune 500'">
 </app-page-header>
 
-<div style='display: flex; justify-content: center; align-items: center; width: 100%; height: 500px'>
-  <div style='background-color: gray'>
-    <app-datepicker-year (change)='setSelectedDate($event)'></app-datepicker-year>
-  </div>
+<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 700px;  background: linear-gradient(360deg, #f3f3f3, #7C98B3);'>
+  <mat-card style="width: 500px; border-radius: 20px">
+    <mat-card-title align="center">Select a Fortune 500 Year</mat-card-title>
+<!--    <mat-card-content '>-->
+      <div style='display: flex; justify-content: center; align-items: center; width: 100%; height: 150px; background-color: black; border-radius: 40px'>
+        <app-datepicker-year (year)='setSelectedDate($event)'></app-datepicker-year>
+      </div>
+<!--    </mat-card-content>-->
+    <mat-card-actions align="end">
+      <button style="background-color: #7C98B3; color: white; font-size: 20px; margin-right: 10px" mat-button (click)="submit()" >Submit</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <h1>Display Data below: </h1>
+
+  {{webpageResponse}}
+
 </div>
 

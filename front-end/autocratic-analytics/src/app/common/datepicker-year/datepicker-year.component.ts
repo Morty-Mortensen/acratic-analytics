@@ -46,7 +46,7 @@ export class DatepickerYearComponent implements OnInit {
 
   date = new FormControl(moment());
 
-  @Output() year = new EventEmitter();
+  @Output() year = new EventEmitter<string>();
 
 
   constructor() { }
@@ -59,9 +59,9 @@ export class DatepickerYearComponent implements OnInit {
   {
     const ctrlValue = this.date.value;
     ctrlValue.year(normalizedYear.year());
-    alert('year: ' + ctrlValue);
-    this.date.setValue(ctrlValue);
-    this.year = ctrlValue;
+    const formattedDate = moment(new Date(ctrlValue)).format('YYYY');
+    this.year.emit(formattedDate);
+    this.date.setValue(formattedDate);
     datepicker.close();
   }
 }

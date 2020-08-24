@@ -43,7 +43,6 @@ export class AccountingWebToCsvComponent implements OnInit {
 
       if ( event instanceof NavigationEnd)
       {
-        console.log('The URL: ' + event.url + ' vs my URL: ' + '/accounting/web-to-csv');
         if ( event.url === '/accounting/web-to-csv' )
         {
           this.displayComponent = true;

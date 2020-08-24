@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-fortune-fivehundred',
@@ -10,15 +12,25 @@ export class FortuneFivehundredComponent implements OnInit {
 
   selectedYear = '';
 
-  constructor() { }
+  webpageResponse = null;
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  setSelectedDate($event)
+  setSelectedDate($event: string)
   {
-    this.selectedYear = $event.target.value;
-    alert('You selected ' + this.selectedYear);
+    this.selectedYear = $event;
   }
+
+  submit()
+  {
+    this.http.get(this.router.url)
+      .subscribe(response => {
+        console.log(response);
+      });
+  }
+
 
 }
