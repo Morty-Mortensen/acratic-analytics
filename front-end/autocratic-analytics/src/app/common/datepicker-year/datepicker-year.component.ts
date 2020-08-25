@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatDatepicker} from '@angular/material/datepicker';
@@ -45,6 +45,11 @@ export const MY_FORMATS = {
 export class DatepickerYearComponent implements OnInit {
 
   date = new FormControl(moment());
+
+  range = new FormGroup({
+    start: new FormControl(moment()),
+    end: new FormControl(moment())
+  });
 
   @Output() year = new EventEmitter<string>();
 

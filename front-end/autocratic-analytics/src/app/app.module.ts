@@ -34,6 +34,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { PageHeaderComponent } from './common/page-header/page-header.component';
 import { FortuneFivehundredComponent } from './accounting-home/accounting-web-to-csv/fortune-fivehundred/fortune-fivehundred.component';
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import {MatMomentDateModule} from "@angular/material-moment-adapter";
     MatMenuModule,
     MatCardModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

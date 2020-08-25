@@ -14,6 +14,8 @@ export class FortuneFivehundredComponent implements OnInit {
 
   webpageResponse = null;
 
+
+
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
