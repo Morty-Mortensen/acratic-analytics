@@ -1,24 +1,129 @@
-<app-page-header
-  [source]="'fortune-500.jpg'"
-  [title]="'Fortune 500'">
-</app-page-header>
-
-<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 700px;  background: linear-gradient(360deg, #f3f3f3, #7C98B3);'>
-  <mat-card style="width: 500px; border-radius: 20px">
-    <mat-card-title align="center">Select a Fortune 500 Year</mat-card-title>
-<!--    <mat-card-content '>-->
-      <div style='display: flex; justify-content: center; align-items: center; width: 100%; height: 150px; background-color: black; border-radius: 40px'>
-        <app-datepicker-year (year)='setSelectedDate($event)'></app-datepicker-year>
-      </div>
-<!--    </mat-card-content>-->
-    <mat-card-actions align="end">
-      <button style="background-color: #7C98B3; color: white; font-size: 20px; margin-right: 10px" mat-button (click)="submit()" >Submit</button>
-    </mat-card-actions>
-  </mat-card>
-
-  <h1>Display Data below: </h1>
-
-  {{webpageResponse}}
+<div *ngIf="loading" style="background-color: rgba(255, 255, 255, 0.75); width: 100%; height: 100%; position: absolute; z-index: 1">
 
 </div>
+  <app-page-header style="background-color: lightcoral; width: 100%"
+    [source]="'fortune-500.jpg'"
+    [title]="'Fortune 500'">
+  </app-page-header>
+
+
+
+<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; min-height: 700px;  background: linear-gradient(360deg, #f3f3f3, #7C98B3);'>
+    <mat-card style="width: 500px; border-radius: 20px">
+      <mat-card-title align="center">Select a Fortune 500 Year</mat-card-title>
+      <div style='display: flex; justify-content: center; align-items: center; width: 100%; height: 150px; background-color: black; border-radius: 40px; padding:5px'>
+        <app-datepicker-year (years)='setSelectedDate($event)'></app-datepicker-year>
+        <div class="company-incrementer">
+          <label style="background-color: gray; text-align: center; margin-top: 2px; border-radius: 25px; padding: 2px; width: 100%">Companies To Display</label>
+          <input [(ngModel)]="selectedCompaniesPerYear" (ngModelChange)="validateValue()" step="10" max="500" min="10" style="background-color: whitesmoke; color: black; text-align: center; border-radius: 15px; margin-top: 5px; padding: 3px" type="number" matInput>
+        </div>
+      </div>
+
+      <mat-spinner *ngIf="loading" style="left: 43%; top: 28%; z-index: 2; position: absolute"></mat-spinner>
+
+      <mat-card-actions align="end">
+        <button style="background-color: #7C98B3; color: white; font-size: 20px; margin-right: 10px" mat-button (click)="submit()">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <br/>
+
+    <div [hidden]="!fortuneFivehundredResponseData">
+      <div class="mat-elevation-z8" style="display: flex; margin-bottom: 10px; background-color: rgb(51, 51, 51)">
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="rank">
+            <th mat-header-cell *matHeaderCellDef> Rank </th>
+            <td mat-cell *matCellDef="let element">{{element.rank}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="revenue">
+            <th mat-header-cell *matHeaderCellDef> Revenue ($M) </th>
+            <td mat-cell *matCellDef="let element"> {{element.revenue | currency}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="revenuePercentChange">
+            <th mat-header-cell *matHeaderCellDef> Revenue % Change </th>
+            <td mat-cell *matCellDef="let element"> {{element.revenuePercentChange + '%'}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="profits">
+            <th mat-header-cell *matHeaderCellDef> Profits ($M) </th>
+            <td mat-cell *matCellDef="let element"> {{element.profits | currency}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="profitsPercentChange">
+            <th mat-header-cell *matHeaderCellDef> Profits % Change </th>
+            <td mat-cell *matCellDef="let element"> {{element.profitsPercentChange + '%'}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="assets">
+            <th mat-header-cell *matHeaderCellDef> Assets ($M) </th>
+            <td mat-cell *matCellDef="let element"> {{element.assets | currency}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="marketValue">
+            <th mat-header-cell *matHeaderCellDef> Market Value ($M) </th>
+            <td mat-cell *matCellDef="let element"> {{element.marketValue | currency}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="changeInRankFull1000">
+            <th mat-header-cell *matHeaderCellDef> Change In Rank (Top 1000) </th>
+            <td mat-cell *matCellDef="let element"> {{element.changeInRankFull1000}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="employees">
+            <th mat-header-cell *matHeaderCellDef> Employees </th>
+            <td mat-cell *matCellDef="let element"> {{element.employees | number}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="changeInRank500Only">
+            <th mat-header-cell *matHeaderCellDef> Change In Rank (Top 500) </th>
+            <td mat-cell *matCellDef="let element"> {{element.changeInRank500Only}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; background-color: black; color: ghostwhite" [hidden]="!fortuneFivehundredResponseData">
+          <mat-paginator style="width: 100%;" [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+
+          <h3>Current Year: {{currentFortuneFivehundredData?.year}}</h3>
+          <ng-container *ngFor="let data of fortuneFivehundredResponseData | keyvalue">
+            <button class="year-selection" mat-button (click)="displaySelectedYear(data.key)"  *ngIf="data.key != currentFortuneFivehundredData.year">{{data.key}}</button>
+          </ng-container>
+          <div style="display: flex; width: 100%; flex-direction: column; justify-content: center; align-items: center">
+            <label style="background-color: #4d4d4d; width: 100%; text-align: center">Export to CSV</label>
+            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+              <button (click)="export(true)" mat-button class="export-button">Current</button>
+              <button (click)="export(false)" mat-button class="export-button">All</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+</div>
+
+
 

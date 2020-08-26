@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
@@ -22,9 +22,9 @@ export const MY_FORMATS = {
   },
   display: {
     dateInput: 'YYYY',
-    monthYearLabel: 'YYYY',
+    monthYearLabel: 'MMM YYYY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'YYYY',
+    monthYearA11yLabel: 'MMMM YYYY',
   },
 };
 
@@ -46,27 +46,40 @@ export class DatepickerYearComponent implements OnInit {
 
   date = new FormControl(moment());
 
-  range = new FormGroup({
-    start: new FormControl(moment()),
-    end: new FormControl(moment())
-  });
+  // range = new FormGroup({
+  //   start: new FormControl(moment()),
+  //   end: new FormControl(moment())
+  // });
 
-  @Output() year = new EventEmitter<string>();
+  range: FormGroup;
+
+  maxDate: Date;
+  minDate: Date;
+
+  @Output() years = new EventEmitter<any>();
 
 
-  constructor() { }
+  constructor() {
+    const currentYear = new Date().getFullYear();
+    const minDateToConvert = '1996-01-01T00:00:00';
+    const convertedMinDate = new Date(minDateToConvert).getFullYear();
 
-  ngOnInit(): void {
+    this.minDate = new Date(convertedMinDate, 0, 1);
+    this.maxDate = new Date(currentYear, 11, 31);
   }
 
-
-  chosenYearHandler(normalizedYear: Moment, datepicker: MatDatepicker<Moment>)
+  ngOnInit(): void
   {
-    const ctrlValue = this.date.value;
-    ctrlValue.year(normalizedYear.year());
-    const formattedDate = moment(new Date(ctrlValue)).format('YYYY');
-    this.year.emit(formattedDate);
-    this.date.setValue(formattedDate);
-    datepicker.close();
+    this.range = new FormGroup({
+      start: new FormControl(moment()),
+      end: new FormControl(moment())
+    });
+
+    // Emit years when changed.
+    this.range.valueChanges.subscribe(value => {
+      const start = moment(new Date(this.range.controls.start.value)).format('YYYY');
+      const end = moment(new Date(this.range.controls.end.value)).format('YYYY');
+      this.years.emit({startDate: start, endDate: end});
+    });
   }
 }

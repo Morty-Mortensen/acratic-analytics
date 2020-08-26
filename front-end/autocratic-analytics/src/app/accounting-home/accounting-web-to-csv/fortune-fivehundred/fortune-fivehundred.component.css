@@ -2,3 +2,81 @@
 {
   background-color: #7C98B3 ;
 }
+
+.company-incrementer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+::ng-deep .mat-paginator-container
+{
+  margin: 10px !important;
+}
+
+::ng-deep .mat-paginator-outer-container
+{
+  margin: 10px !important;
+}
+
+::ng-deep.mat-form-field-flex.ng-tns-c111-1
+{
+  background-color: black;
+  text-align: center;
+}
+
+::ng-deep.mat-primary.mat-option.mat-selected:not(.mat-option-disabled)
+{
+  color: whitesmoke !important;
+}
+
+::ng-deep.mat-option-text
+{
+  color: whitesmoke !important;
+}
+
+::ng-deep.mat-option-text
+{
+  color: whitesmoke !important;
+}
+
+::ng-deep.mat-option-text:hover
+{
+  color: #7C98B3 !important;
+}
+
+.year-selection
+{
+  width: 100%;
+  margin: 10px;
+  background-color: #7C98B3
+}
+
+.year-selection:hover
+{
+  width: 100%;
+  margin: 10px;
+  background-color: cornflowerblue;
+}
+
+.export-button
+{
+  margin: 5px;
+  background-color: #7C98B3;
+}
+
+.export-button:hover
+{
+  background-color: #5583ad;
+  color: #d9d9d9;
+}
+
+

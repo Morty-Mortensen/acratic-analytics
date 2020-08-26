@@ -13,7 +13,7 @@ import { NavBarLinksComponent } from './navigation/nav-bar/nav-bar-links/nav-bar
 import { SearchBarComponent } from './navigation/search-bar/search-bar.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ProfileImageComponent } from './navigation/profile-image/profile-image.component';
 import { LoginNavComponent } from './navigation/login-nav/login-nav.component';
 import { HomeComponent } from './home/home.component';
@@ -36,6 +36,11 @@ import { FortuneFivehundredComponent } from './accounting-home/accounting-web-to
 import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {CurrencyPipe, DecimalPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -76,9 +81,13 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatDatepickerModule,
     MatMomentDateModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    FormsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatButtonToggleModule
   ],
-  providers: [],
+  providers: [CurrencyPipe, DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
