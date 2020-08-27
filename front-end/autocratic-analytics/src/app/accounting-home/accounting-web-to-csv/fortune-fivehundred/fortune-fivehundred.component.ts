@@ -7,6 +7,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import { CurrencyPipe, DecimalPipe} from '@angular/common';
+import {ExcelService} from "../../../common-services/excel.service";
 
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
@@ -36,12 +37,9 @@ export class FortuneFivehundredComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+  constructor(private http: HttpClient, private router: Router, private currencyPipe: CurrencyPipe, private decimalPipe: DecimalPipe, private excelService: ExcelService) { }
 
-
-  constructor(private http: HttpClient, private router: Router, private currencyPipe: CurrencyPipe, private decimalPipe: DecimalPipe) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   setSelectedDate($event: any)
   {
@@ -80,21 +78,19 @@ export class FortuneFivehundredComponent implements OnInit {
 
   export(currentYear)
   {
+    const cleanDataToExport = [];
+    let exportTitle: string;
     if ( currentYear )
     {
-      // const currYearJsonData = JSON.stringify(this.currentFortuneFivehundredData);
-      const selectedYearData = [];
       for ( let i = 0; i < this.currentFortuneFivehundredData.data.length; i++ )
       {
-        selectedYearData.push(this.makePretty(this.currentFortuneFivehundredData.data[i], this.currentFortuneFivehundredData.year));
+        cleanDataToExport.push(this.makePretty(this.currentFortuneFivehundredData.data[i], this.currentFortuneFivehundredData.year));
       }
 
-      this.exportAsExcelFile(selectedYearData, 'year_test');
+      exportTitle = 'fortune_fivehundred_' + this.currentFortuneFivehundredData.year;
     }
     else
     {
-      // const allYearsJsonData = JSON.stringify(this.fortuneFivehundredResponseData);
-      const allData = [];
       let start: number = +this.selectedStartYear;
       const end: number = +this.selectedEndYear;
 
@@ -102,32 +98,14 @@ export class FortuneFivehundredComponent implements OnInit {
       {
         for ( let i = 0; i < this.fortuneFivehundredResponseData[start].length; i++ )
         {
-            allData.push(this.makePretty(this.fortuneFivehundredResponseData[start][i], start));
+          cleanDataToExport.push(this.makePretty(this.fortuneFivehundredResponseData[start][i], start));
         }
         start++;
       }
-
-
-
-      this.exportAsExcelFile(allData, 'all_test');
+      exportTitle = 'fortune_fivehundred_' + this.selectedStartYear + '_' + this.selectedEndYear;
     }
-  }
 
-  public exportAsExcelFile(json: any[], excelFileName: string): void {
-
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
-    console.log('worksheet', worksheet);
-    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    //const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'buffer' });
-    this.saveAsExcelFile(excelBuffer, excelFileName);
-  }
-
-  private saveAsExcelFile(buffer: any, fileName: string): void {
-    const data: Blob = new Blob([buffer], {
-      type: EXCEL_TYPE
-    });
-    FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+    this.excelService.exportAsExcelFile(cleanDataToExport, exportTitle);
   }
 
   public makePretty(data: any, year: number)
