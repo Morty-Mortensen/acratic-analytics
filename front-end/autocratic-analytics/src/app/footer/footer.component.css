@@ -13,7 +13,10 @@
 {
   display: flex;
   width: 100%;
-  background-color: lightgray;
+  /*background-color: #E6E6FA;*/
+  box-shadow:0px -3px 2px rgba(224,223,248,0.6);
+  background-color: #E6E6FA;
+
   min-height: 100px
 }
 

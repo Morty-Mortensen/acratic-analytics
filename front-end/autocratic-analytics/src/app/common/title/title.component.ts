@@ -23,6 +23,12 @@ export class TitleComponent implements OnInit {
   @Input() right = '';
   @Input() top = '';
   @Input() bottom = '';
+  @Input() background = '';
+  // '-webkit-linear-gradient(white, #ADD8E6)'
+  @Input() webkitBackgroundClip = '';
+  // text
+  @Input() webkitTextFillColor = '';
+  // transparent
 
 
   constructor() { }

@@ -43,12 +43,7 @@
 
 .profile-image
 {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0 10px 0 10px;
-  width: 100px;
+  margin-right: 15px;
 }
 
 

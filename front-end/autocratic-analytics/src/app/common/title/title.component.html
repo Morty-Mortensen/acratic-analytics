@@ -1,18 +1,21 @@
 <p [ngStyle]="{
   'fontFamily': fontFamily,
   'fontSize': fontSize,
-  'lineHeight': (lineHeight !== '') ? lineHeight : null,
+  'lineHeight': lineHeight,
   'color': fontColor,
   'fontWeight': fontWeight,
-  'wordSpacing': (wordSpacing !== '') ? wordSpacing : null,
-  'wordBreak': (wordBreak !== '') ? wordBreak : null,
-  'margin': (margin !== '') ? margin : null,
+  'wordSpacing': wordSpacing,
+  'wordBreak': wordBreak,
+  'margin': margin,
   'borderBottom': borderBottom,
   'paddingBottom': paddingBottom,
   'position': position,
   'left': left,
   'right': right,
   'top': top,
-  'bottom': bottom
+  'bottom': bottom,
+  'background': background,
+  '-webkit-background-clip': (background) ? 'text' :  webkitBackgroundClip,
+  '-webkit-text-fill-color': (background) ? 'transparent' : webkitTextFillColor
 }"
 >{{title | titlecase}}</p>

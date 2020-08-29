@@ -3,25 +3,27 @@
   <div class="white-space"></div>
 
   <div class="welcome-container">
-    <div class="welcome-title-container">
-      <app-title
-      [title]="'Welcome to your business helper'"
-      [lineHeight]="'1'"
-      [wordSpacing]="'5px'"
-      [wordBreak]="'break-word'"
-      ></app-title>
+    <div style="display: flex; width: 100%; flex-direction: column; justify-content: center; align-items: center">
+      <div class="welcome-title-container">
+        <app-title
+          [title]="'Welcome to your business helper'"
+          [lineHeight]="'1'"
+          [wordSpacing]="'5px'"
+          [wordBreak]="'break-word'"
+          [fontColor]="'#fdfff5'"
+        ></app-title>
+      </div>
+      <div class="top-3">
+        <app-small-card
+          [cards]="[{path: '/accounting/web-to-csv', display: 'convert your stuff to csv!'}, {path: '/finance', display: 'check out your finances.'}, {path: '/marketing', display: 'create your own marketing logo.'}]"
+        ></app-small-card>
+      </div>
     </div>
-    <div class="top-3">
-      <app-small-card
-      [cards]="[{path: '/accounting/web-to-csv', display: 'convert your stuff to csv!'}, {path: '/finance', display: 'check out your finances.'}, {path: '/marketing', display: 'create your own marketing logo.'}]"
-      ></app-small-card>
-    </div>
+
     <div class="welcome-image">
       <img class="welcome-image-properties" src="assets/home_important_links.jpg"/>
     </div>
   </div>
-
-  <div class="white-space"></div>
 
   <div class="article-section-container">
     <div class="article-title-container">
@@ -29,7 +31,8 @@
         [title]="'Recent Articles'"
         [wordSpacing]="'5px'"
         [fontSize]="'45px'"
-        [margin]="'0 0 0 20px'"
+        [margin]="'5px 0 5px 20px'"
+        [background]="'-webkit-linear-gradient(white, #E6E6FA)'"
       ></app-title>
     </div>
 
@@ -46,23 +49,26 @@
       [title]="'Our Story'"
       [wordSpacing]="'5px'"
       [fontSize]="'45px'"
-      [margin]="'0 0 0 20px'"
+      [background]="'-webkit-linear-gradient(white, #E6E6FA)'"
+      [margin]="'5px 20px 5px 0'"
     ></app-title>
   </div>
 
-  <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 20px 0 20px 0;   background: linear-gradient(360deg, #7C98B3, lightcyan);">
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 50px 0 50px 0;">
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 20px;">
       <app-title
         [title]="'View how our story came to be'"
         [fontSize]="'40px'"
-        [fontColor]="'black'"
-        [fontWeight]="'400'"
-        [margin]="'0 0 20px 0'"
+
+
+        [background]="'-webkit-linear-gradient(white, #E6E6FA)'"
+        [margin]="'0px 0 0px 20px'"
       ></app-title>
       <app-title
         [title]="'Let our story become your\'s'"
         [fontSize]="'25px'"
-        [fontColor]="'gray'"
+        [fontColor]="'black'"
+        [fontWeight]="'400'"
         [margin]="'0 0 0 0'"
       ></app-title>
     </div>
