@@ -16,6 +16,7 @@ public class FortuneFivehundredModel
     private int employees;
     private int changeInRank500Only;
 
+    public FortuneFivehundredModel() {}
 
     public FortuneFivehundredModel(int id, String name, double revenue, double revenuePercentChange, double profits, double profitsPercentChange, double assets, double marketValue, int changeInRankFull1000, int employees, int changeInRank500Only)
     {
